@@ -25,19 +25,7 @@ export class SpringRequestComponent implements OnInit {
   }
 
   requete2() {
-    let username: string = 'admin';
-    let password: string = 'admin';
-
-    let authorizationData = 'Basic ' + btoa(`${username}:${password}`);
-
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        Authorization: authorizationData
-      })
-    };
-
-    this.httpClient.get<any>("http://localhost:8082/api/needAuthentication", httpOptions)
+    this.httpClient.get<any>("http://localhost:8082/api/needAuthentication")
       .subscribe(
         message => { this.message2 = message.message; }
       );
